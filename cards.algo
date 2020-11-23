@@ -1,0 +1,24 @@
+PROCEDURE SWAP(var x, var y:INTEGER)
+VAR
+    temp:INTEGER;
+BEGIN
+    temp:=x;
+    x:=y;
+    y:=temp;
+END
+
+ALGORITHM CARDS
+VAR
+    i,j,n:INTEGER;
+    HAND, DECK : ARRAY_OF INTEGER[n];
+BEGIN
+    HAND[0]:=DECK[0];
+    FOR i FROM 0 TO n-1 DO
+        HAND[i]:=DECK[i];
+        j:=i;
+        WHILE (HAND[j]<HAND[j-1] AND j>0) DO
+            SWAP(HAND[j],HAND[j-1]);
+            j:=j-1;
+        END_WHILE
+    END_FOR
+END
